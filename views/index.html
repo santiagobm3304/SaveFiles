@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Archivos</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lista de Archivos</h1>
+        <button id="logoutButton" class="logout">Cerrar Sesión</button>
+        <form id="filterForm">
+            <input type="text" id="filenameFilter" placeholder="Buscar por nombre de archivo">
+            <select id="mimetypeFilter">
+                <option value="">Todos los tipos</option>
+                <option value="application/pdf">PDF</option>
+                <option value="image/jpeg">JPEG</option>
+                <option value="image/png">PNG</option>
+                <option value="application/vnd.ms-excel.sheet.macroenabled.12">EXCEL/XLSM</option>
+                <option value="application/vnd.ms-word.document.macroenabled.12">WORD/DOCM</option>
+                <option value="application/vnd.openxmlformats-officedocument.wordprocessingml.document">WORD/DOCX</option>
+            </select>
+            <input type="date" id="dateFilter">
+            <button type="submit">Filtrar</button>
+        </form>
+        
+        <table id="filesTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Fecha de Subida</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="filesList">
+                <!-- Los archivos se llenarán aquí con JavaScript -->
+            </tbody>
+            <div class="errorLoad" id="errorLoad"></div>
+        </table>
+        <a href="/upload" class="view-all">Subir Archivo</a>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

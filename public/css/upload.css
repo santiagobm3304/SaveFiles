@@ -1,0 +1,100 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal del formulario */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado del formulario */
+h1 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #495057;
+}
+
+input[type="file"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Botones */
+button {
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-button {
+    background-color: #007bff;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+.submit-button1 {
+    background-color: #dc3545;
+}
+
+.submit-button1:hover {
+    background-color: #c82333;
+    transform: scale(1.02);
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
