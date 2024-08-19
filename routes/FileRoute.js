@@ -98,23 +98,10 @@ router.get('/:id', verifyToken, async (req, res) => {
         res.status(500).json({ message: 'Error al obtener el archivo', error: err.message });
     }
 });
-// Descargar un archivo
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const file = await File.findById(req.params.id);
-//         if (!file) {
-//             return res.status(404).json({ message: 'Archivo no encontrado' });
-//         }
-//         res.download(file.path, file.filename);
-//     } catch (err) {
-//         res.status(500).json({ message: 'Error al descargar el archivo', error: err.message });
-//     }
-// });
 // Modificar un archivo
 router.put('/update/:id', verifyToken, upload.single('file'), async (req, res) => {
     try {
         const fileId = req.params.id;
-        console.log(fileId);
         const file = await File.findById(fileId);
         if (!file) {
             return res.status(404).json({ message: 'Archivo no encontrado' });

@@ -8,9 +8,9 @@ const createAdmin = async () => {
     if (count > 0) return;
     
     const usuario = new User({
-        nombre: "Antonio",
-        correo: "antonio@savefiles.com",
-        clave: "savefiles123"
+        nombre: "Kevin",
+        correo: "kevin.arenas@tecsup.edu.pe",
+        clave: "kevinarenas24"
     });
     await createNewUsuario(usuario);
 

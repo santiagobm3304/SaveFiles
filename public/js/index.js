@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     try { 
         const response = await fetchData('/api/files', { method: 'GET' });
         const files = await response.json();
-        console.log(files.message)
         if(response.ok){
             renderTable(files);
         }else{

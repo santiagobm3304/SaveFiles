@@ -41,7 +41,6 @@ document.getElementById('uploadForm').addEventListener('submit', async (event) =
             method: 'POST',
             body: formData
         });
-        console.log(response);
 
         if (response.ok) {
             const result = await response.json();

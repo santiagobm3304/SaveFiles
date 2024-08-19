@@ -52,7 +52,6 @@ async function getUserData() {
     try {
         const response = await fetchData('/api/files', { method: 'GET' });
         const data = await response.json();
-        console.log(data);
     } catch (error) {
         console.error('Error:', error);
     }

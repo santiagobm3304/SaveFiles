@@ -16,7 +16,16 @@ body {
     width: 100%;
     max-width: 400px;
 }
-
+.login-container img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 h1 {
     text-align: center;
     color: #333;

@@ -8,7 +8,6 @@ const createNewUsuario = async (nuevoUsuario) => {
     // Verificar si el usuario ya existe
     const usuarioExistente = await User.findOne({ correo: nuevoUsuario.correo });
     if (usuarioExistente) {
-        console.log('El usuario ya existe:', usuarioExistente);
         throw new Error('El usuario con ese correo ya existe');
     }
 
@@ -39,7 +38,6 @@ const loginUsuario = async (correo, clave) => {
 router.post('/signin', async (req, res) => {
     try {
         const { body } = req;
-        console.log(body);
         const usuario = await loginUsuario(body.correo, body.clave);
 
         if (usuario == 0) {
@@ -70,7 +68,6 @@ router.post('/signin', async (req, res) => {
         const token = jwt.sign(tokenPayload, "S4V3F1L3S", {
             expiresIn: 86400
         })
-        console.log(token);
         res.status(200).json({
             status: 'success',
             code: 200,
