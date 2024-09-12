@@ -111,36 +111,32 @@ tbody tr:hover {
 .view-all {
     display: block;
     width: max-content;
-    margin: 20px auto;
     padding: 10px 20px;
     text-align: center;
-    background-color: #28a745;
+    background-color: #a79a28 !important;
     color: #ffffff;
     border-radius: 4px;
     text-decoration: none;
 }
 
 .view-all:hover {
-    background-color: #218838;
+    background-color: #887821 !important;
 }
-/* Logout button styles */
-.logout {
+.view-excel {
     display: block;
     width: max-content;
-    margin: 20px auto;
     padding: 10px 20px;
     text-align: center;
-    background-color: #dc3545;
+    background-color: #28a744 !important;
     color: #ffffff;
     border-radius: 4px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+    text-decoration: none;
 }
 
-.logout:hover {
-    background-color: #c82333;
+.view-excel:hover {
+    background-color: #21883b !important;
 }
+
 .footer-right {
     position: fixed;
     bottom: 10px;

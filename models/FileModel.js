@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const fileSchema = new mongoose.Schema({
     user: String,
+    machine: Number,
     description: String,
     originalname: String,
     filename: String,
@@ -12,7 +13,8 @@ const fileSchema = new mongoose.Schema({
         type: String, 
         default: () => {
             const today = new Date();
-            return today.toISOString().split('T')[0]; // Devuelve "YYYY-MM-DD"
+            today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+            return today.toISOString().split('T')[0]; //"YYYY-MM-DD"
         }
     }
 });

@@ -1,12 +1,23 @@
-const token = sessionStorage.getItem('token')
-if (token == undefined) {
-    window.location.href="/login";
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const token = sessionStorage.getItem('token');
+    const machine = sessionStorage.getItem('machine');
+
+    if (!token) {
+        window.location.href = "/login";
+        return;
+    }
+    if (!machine) {
+        alert("No se ha proporcionado una Máquina para ver sus archivos.");
+        window.location.href = "/machines";
+    }
+});
+
 async function fetchData(url, options = {}) {
     const headers = {
         ...options.headers
     };
 
+    const token = sessionStorage.getItem('token');
     if (token) {
         headers['x-access-token'] = token;
     }
@@ -18,44 +29,44 @@ async function fetchData(url, options = {}) {
         });
 
         if (!response.ok) {
-            const error = await response.json();
+            // Si la respuesta no es OK, intenta leer el error como JSON
+            let error = { message: 'Error en la solicitud' };
+            try {
+                error = await response.json();
+            } catch (jsonError) {
+                console.error('Error al analizar JSON:', jsonError);
+            }
             throw new Error(error.message || 'Error en la solicitud');
         }
 
-        return response;
+        return response.json();
     } catch (error) {
         console.error('Error en fetchData:', error);
         throw error;
     }
 }
 
-
 document.getElementById('uploadForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     formData.append('user', sessionStorage.getItem('name'));
+    formData.append('machine', sessionStorage.getItem('machine'));
 
     try {
-        const response = await fetchData('/api/files/upload', {
+        const result = await fetchData('/api/files/upload', {
             method: 'POST',
             body: formData
         });
 
-        if (response.ok) {
-            const result = await response.json();
-            alert('Archivo subido exitosamente!');
-            window.location.href = '/home';
-        } else {
-            const error = await response.json();
-            alert('Error al subir el archivo: ' + error.message);
-            console.error('Error:', error);
-        }
+        alert('Archivo subido exitosamente!');
+        window.location.href = "/index?id=" + sessionStorage.getItem('machine');
     } catch (error) {
         alert('Error al subir el archivo: ' + error.message);
         console.error('Error:', error);
     }
 });
+
 document.getElementById('cancelButton').addEventListener('click', () => {
-    window.location.href = '/home'; // Redirige a la página de inicio
+    window.location.href = "/index?id=" + sessionStorage.getItem('machine');
 });

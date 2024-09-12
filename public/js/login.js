@@ -1,5 +1,5 @@
 if (sessionStorage.getItem('token') != undefined) {
-    window.location.href = "/home";
+    window.location.href = "/machines";
 }
 async function fetchData(url, options = {}) {
     const token = sessionStorage.getItem('token');
@@ -37,7 +37,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         if (response.ok) {
             sessionStorage.setItem('name', result.data.user.name);
             sessionStorage.setItem('token', result.data.token);
-            window.location.href = '/home';
+            window.location.href = '/machines';
         } else {
             errorMessage.textContent = result.message || 'Error al iniciar sesión';
         }
@@ -46,16 +46,4 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         errorMessage.textContent = 'Error de conexión. Por favor, inténtalo de nuevo.';
     }
 });
-
-// Ejemplo de cómo usar fetchData para solicitudes futuras
-async function getUserData() {
-    try {
-        const response = await fetchData('/api/files', { method: 'GET' });
-        const data = await response.json();
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-// Llama a getUserData para probar la función con el token en el header
-getUserData();
+ 

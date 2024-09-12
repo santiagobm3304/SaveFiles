@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes 2x2 con Enlaces</title>
+    <link rel="stylesheet" href="css/machines.css">
+    <link rel="stylesheet" href="css/fixed.css">
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <a href="/index?machine=1" onclick="selectMachine(1)">
+                <img src="img/Retroexcavadora.jpeg" alt="Retroexcavadora CAT 420f">
+                <h3>Retroexcavadora CAT 420f</h3>
+            </a>
+        </div>
+        <div class="item">
+            <a href="/index?machine=2" onclick="selectMachine(2)">
+                <img src="img/cargador.jpeg" alt="Cargador Frontal 950 H">
+                <h3>Cargador Frontal 950 H</h3>
+            </a>
+        </div>
+        <div class="item">
+            <a href="/index?machine=3" onclick="selectMachine(3)">
+                <img src="img/oruga.jpeg" alt="Excavadora oruga 320D">
+                <h3>Excavadora oruga 320D</h3>
+            </a>
+        </div>
+        <div class="item">
+            <a href="/index?machine=4" onclick="selectMachine(4)">
+                <img src="img/rodillo.jpeg" alt="Rodillo cat CS10 GC">
+                <h3>Rodillo cat CS10 GC</h3>
+            </a>
+        </div>
+        
+    </div>
+    <div class="fixed-buttons">
+        <button id="logoutButton" onclick="logout()"><i class="fas fa-power-off"></i></button>
+    </div>
+    <script src="js/machines.js"></script>
+</body>
+</html>

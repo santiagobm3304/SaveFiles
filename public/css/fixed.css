@@ -1,0 +1,39 @@
+.fixed-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fixed-buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fixed-buttons button:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .fixed-buttons {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .fixed-buttons button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
