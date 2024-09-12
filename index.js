@@ -48,7 +48,11 @@ app.get('/:page', (req, res) => {
 // Ejecutar la función
 createUploads();
 // Conectar a MongoDB
-mongoose.connect('mongodb+srv://Tiago:tysonryx123@projects.dkslbjj.mongodb.net/savefiles?retryWrites=true&w=majority&appName=Projects').then(() => console.log('MongoDB conectado'))
+mongoose.connect('mongodb+srv://Tiago:tysonryx123@projects.dkslbjj.mongodb.net/savefiles?retryWrites=true&w=majority&appName=Projects', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 30000 // Aumenta el tiempo de espera a 30 segundos
+  }).then(() => console.log('MongoDB conectado'))
   .catch(err => console.log('Error al conectar a MongoDB:', err.message));
 
 app.use(express.json());
