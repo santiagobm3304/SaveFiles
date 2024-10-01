@@ -23,6 +23,7 @@ const createNewUsuario = async (nuevoUsuario) => {
     const usuarioCreado = new User(nuevoUsuario);
 
     // Guardar el usuario en la base de datos
+    console.log(usuarioCreado)
     return await usuarioCreado.save();
 };
 
@@ -76,7 +77,8 @@ router.post('/signin', async (req, res) => {
                 user: {
                     id: usuario._id,
                     name: usuario.nombre,
-                    email: usuario.correo
+                    email: usuario.correo,
+                    rol: usuario.rol
                 },
                 token: token
             }

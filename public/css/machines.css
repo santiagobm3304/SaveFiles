@@ -25,14 +25,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.item a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .item img {
     width: 100%;
-    height: auto;
+    height: 70%;
     border-radius: 8px;
 }
 
@@ -48,4 +43,21 @@ body {
         grid-template-columns: 1fr;
         gap: 10px;
     }
+}.button-container {
+    margin-top: 10px;
+}
+
+.button-container button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
 }

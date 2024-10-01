@@ -1,10 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('./libs/initialSetUp');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const fileRoutes = require('./routes/FileRoute');
+const linkRoutes = require('./routes/LinkRoute');
 const userRoutes = require('./routes/UserRoute');
+const pageRoutes = require('./routes/PageRoute');
 
 dotenv.config();
 
@@ -23,40 +24,21 @@ function createUploads() {
     }
 }
 
+
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(cors());
-
-// Ruta para la vista principal
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'views', 'login.html'));
-});
-app.get('/machines', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'views', 'machines.html'));
-});
-app.get('/:page', (req, res) => {
-    const page = req.params.page;
-    const validPages = ['index', 'upload', 'update'];
-
-    if (validPages.includes(page)) {
-        res.sendFile(path.join(process.cwd(), 'views', `${page}.html`));
-    } else {
-        res.status(404).send('Página no encontrada');
-    }
-});
 
 
 // Ejecutar la función
 createUploads();
 // Conectar a MongoDB
-mongoose.connect('mongodb+srv://Tiago:tysonryx123@projects.dkslbjj.mongodb.net/savefiles?retryWrites=true&w=majority&appName=Projects', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 30000 // Aumenta el tiempo de espera a 30 segundos
-  }).then(() => console.log('MongoDB conectado'))
+mongoose.connect('mongodb+srv://Tiago:tysonryx123@projects.dkslbjj.mongodb.net/savefiles?retryWrites=true&w=majority&appName=Projects').then(() => console.log('MongoDB conectado'))
   .catch(err => console.log('Error al conectar a MongoDB:', err.message));
 
 app.use(express.json());
+app.use('/', pageRoutes);
 app.use('/api/files', fileRoutes);
+app.use('/api/links', linkRoutes);
 app.use('/api/auth', userRoutes.router);
 
 const PORT = process.env.PORT || 5000;

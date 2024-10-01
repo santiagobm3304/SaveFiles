@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivo</title>
+    <link rel="stylesheet" href="/css/upload.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Subir Enlace</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="url">Introducir enlace (URL):</label>
+                <input type="url" id="url" name="url" placeholder="http://example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Introducir nombre para el enlace:</label>
+                <input type="text" id="name" name="name" placeholder="Nombre para el enlace" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" rows="4"
+                    placeholder="Ingrese una descripción..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hoursToExpire">Horas hasta expirar (opcional):</label>
+                <input type="number" id="hoursToExpire" name="hoursToExpire" min="1"
+                    placeholder="Horas hasta expirar...">
+            </div>
+            <button type="submit" class="submit-button">Subir Enlace</button>
+            <button type="button" id="cancelButton" class="submit-button1">Cancelar</button>
+        </form>
+
+    </div>
+
+    <script src="/js/links/upload.js"></script>
+</body>
+
+</html>

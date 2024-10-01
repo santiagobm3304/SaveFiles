@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 
-const fileSchema = new mongoose.Schema({
+const linkSchema = new mongoose.Schema({
     user: String,
     machine: Number,
     description: String,
-    originalname: String,
-    filename: String,
-    path: String,
-    size: Number,
-    mimetype: String,
+    name: String,
+    url: String,
     expire: {
         type: Boolean,
         default: false
@@ -25,4 +22,4 @@ const fileSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('File', fileSchema);
+module.exports = mongoose.model('Link', linkSchema);

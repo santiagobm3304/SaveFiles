@@ -7,6 +7,11 @@ const userSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
+    rol: {
+        type: Number,
+        default: 2,
+        required: true
+    },
     correo: {
         type: String,
         unique: true,

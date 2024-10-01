@@ -3,37 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imágenes 2x2 con Enlaces</title>
+    <title>Maquinarias</title>
     <link rel="stylesheet" href="css/machines.css">
     <link rel="stylesheet" href="css/fixed.css">
 </head>
 <body>
     <div class="container">
         <div class="item">
-            <a href="/index?machine=1" onclick="selectMachine(1)">
-                <img src="img/Retroexcavadora.jpeg" alt="Retroexcavadora CAT 420f">
-                <h3>Retroexcavadora CAT 420f</h3>
-            </a>
-        </div>
-        <div class="item">
-            <a href="/index?machine=2" onclick="selectMachine(2)">
-                <img src="img/cargador.jpeg" alt="Cargador Frontal 950 H">
-                <h3>Cargador Frontal 950 H</h3>
-            </a>
-        </div>
-        <div class="item">
-            <a href="/index?machine=3" onclick="selectMachine(3)">
-                <img src="img/oruga.jpeg" alt="Excavadora oruga 320D">
-                <h3>Excavadora oruga 320D</h3>
-            </a>
-        </div>
-        <div class="item">
-            <a href="/index?machine=4" onclick="selectMachine(4)">
-                <img src="img/rodillo.jpeg" alt="Rodillo cat CS10 GC">
-                <h3>Rodillo cat CS10 GC</h3>
-            </a>
+            <img src="img/Retroexcavadora.jpeg" alt="Retroexcavadora CAT">
+            <h3>Retroexcavadora CAT</h3>
+            <div class="button-container">
+                <button onclick="navigateToFiles(1)">Archivos</button>
+                <button onclick="navigateToLinks(1)" style="background: url('https://pivot.jp/wordpress/wp-content/uploads/2022/01/rectangle_large_type_2_039b523f9.jpg');">Links  </button>
+            </div>
         </div>
         
+        <div class="item">
+            <img src="img/cargador.jpeg" alt="Cargador Frontal">
+            <h3>Cargador Frontal</h3>
+            <div class="button-container">
+                <button onclick="navigateToFiles(2)">Archivos</button>
+                <button onclick="navigateToLinks(2)" style="background: url('https://pivot.jp/wordpress/wp-content/uploads/2022/01/rectangle_large_type_2_039b523f9.jpg');">Links  </button>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="img/motoniveladora.jpeg" alt="Motoniveladora Cat">
+            <h3>Motoniveladora Cat</h3>
+            <div class="button-container">
+                <button onclick="navigateToFiles(3)">Archivos</button>
+                <button onclick="navigateToLinks(3)" style="background: url('https://pivot.jp/wordpress/wp-content/uploads/2022/01/rectangle_large_type_2_039b523f9.jpg');">Links  </button>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="img/rodillo.jpeg" alt="Rodillo Cat">
+            <h3>Rodillo Cat</h3>
+            <div class="button-container">
+                <button onclick="navigateToFiles(4)">Archivos</button>
+                <button onclick="navigateToLinks(4)" style="background: url('https://pivot.jp/wordpress/wp-content/uploads/2022/01/rectangle_large_type_2_039b523f9.jpg');">Links  </button>
+            </div>
+        </div>
     </div>
     <div class="fixed-buttons">
         <button id="logoutButton" onclick="logout()"><i class="fas fa-power-off"></i></button>

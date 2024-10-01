@@ -25,6 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+
     const errorMessage = document.getElementById('errorMessage');
 
     try {
@@ -36,8 +37,17 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         const result = await response.json();
         if (response.ok) {
             sessionStorage.setItem('name', result.data.user.name);
+            sessionStorage.setItem('id', result.data.user.id);
+            sessionStorage.setItem('rol', result.data.user.rol );
             sessionStorage.setItem('token', result.data.token);
-            window.location.href = '/machines';
+            const user = sessionStorage.getItem('id');
+            if(sessionStorage.getItem('rol')==1) {
+                window.location.href = '/machines';
+                return;
+            } else{
+                window.location.href = `/client/${user}/inicio`;
+                return;
+            }
         } else {
             errorMessage.textContent = result.message || 'Error al iniciar sesión';
         }

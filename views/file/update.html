@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Archivo</title>
+    <link rel="stylesheet" href="/css/update.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Actualizar Archivo</h1>
+        <form id="updateForm" enctype="multipart/form-data">
+            <input type="hidden" id="fileId" name="fileId" value="">
+            <!-- Campos para mostrar la información actual del archivo -->
+            <div id="nombre">
+                <label for="currentFilename">Nombre:</label>
+                <input type="text" id="currentFilename" name="currentFilename" readonly>
+            </div>
+            <div id="peso">
+                <label for="currentSize">Peso Actual:</label>
+                <input type="text" id="currentSize" name="currentSize" readonly>
+            </div>
+            <div id="descripcion">
+                <label for="currentDescription">Descripción Actual:</label>
+                <input type="text" id="currentDescription" name="currentDescription" readonly>
+            </div>
+            <div id="tipo">
+                <label for="currentMimetype">Tipo de Archivo Actual:</label>
+                <input type="text" id="currentMimetype" name="currentMimetype" readonly>
+            </div>
+            <div id="usuario">
+                <label for="currentUser">Usuario de Subida de Archivo:</label>
+                <input type="text" id="currentUser" name="currentUser" readonly>
+            </div>
+            <div id="nuevadescripcion">
+                <label for="description">Nueva Descripción:</label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div id="nuevoarchivo">
+                <label for="file">Nuevo Archivo (debe tener el mismo nombre y tipo):</label>
+                <input type="file" id="file" name="file">
+            </div>
+            <div class="form-group">
+                <label for="hoursToExpire">Horas hasta expirar (opcional):</label>
+                <input type="number" id="hoursToExpire" name="hoursToExpire" min="1"
+                    placeholder="Horas hasta expirar...">
+            </div>
+            <button type="submit">Actualizar</button>
+            <button type="button" id="cancelButton" class="cancelButton">Cancelar</button>
+        </form>
+
+        <h1>Archivo expira en:</h1>
+        <div id="countdown"></div>
+    </div>
+    <script src="/js/files/update.js"></script>
+</body>
+
+</html>
